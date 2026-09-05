@@ -4,6 +4,10 @@ export type DemoScenario = 'scenario-1' | 'scenario-2' | 'scenario-3';
 
 export type SubView = 
   | 'health_hub' 
+  | 'pillar_1'
+  | 'pillar_2'
+  | 'pillar_3'
+  | 'pillar_4'
   | 'uleo_stream' 
   | 'digital_twin' 
   | 'validation_logger' 

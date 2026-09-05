@@ -3,19 +3,16 @@ import { useLogistics } from '../../context/LogisticsContext';
 import { SubView } from '../../types/logistics';
 import {
   Activity,
-  GitFork,
+  Database,
   CheckCircle2,
   AlertOctagon,
-  Sparkles,
-  Layers,
-  Database,
-  ShieldCheck,
   Zap,
 } from 'lucide-react';
 
 interface NavItem {
   id: SubView;
-  label: string;
+  pillarTitle: string;
+  subtitle: string;
   icon: React.ComponentType<{ className?: string }>;
   badgeCount?: number;
 }
@@ -32,37 +29,47 @@ export const Sidebar: React.FC = () => {
   const navItems: NavItem[] = [
     {
       id: 'health_hub',
-      label: 'Global Network Health',
+      pillarTitle: 'Global Network Health',
+      subtitle: 'NOC Flight Control',
       icon: Activity,
     },
     {
-      id: 'uleo_stream',
-      label: 'ULEO Engine',
+      id: 'pillar_1',
+      pillarTitle: 'The Semantic Level',
+      subtitle: 'ULEO & World Model',
       icon: Database,
     },
     {
-      id: 'digital_twin',
-      label: 'Digital Twin Graph',
-      icon: GitFork,
-    },
-    {
-      id: 'validation_logger',
-      label: 'Story Engine & Validation',
+      id: 'pillar_2',
+      pillarTitle: 'The Verification Level',
+      subtitle: 'State Machines & Story Engine',
       icon: CheckCircle2,
       badgeCount: scenario === 'scenario-3' ? 2 : undefined,
     },
     {
-      id: 'incident_context',
-      label: 'Incident Context Panel',
+      id: 'pillar_3',
+      pillarTitle: 'The Diagnostic Level',
+      subtitle: 'Dependency & 5Q Context',
       icon: AlertOctagon,
       badgeCount: activeCrisesCount > 0 ? activeCrisesCount : undefined,
     },
     {
-      id: 'recovery_simulator',
-      label: 'Decision Sandbox',
+      id: 'pillar_4',
+      pillarTitle: 'The Actionable Level',
+      subtitle: 'Decision Engine & Simulator',
       icon: Zap,
     },
   ];
+
+  // Helper to determine if item is active
+  const isItemActive = (id: SubView) => {
+    if (subView === id) return true;
+    if (id === 'pillar_1' && (subView === 'uleo_stream' || subView === 'digital_twin')) return true;
+    if (id === 'pillar_2' && subView === 'validation_logger') return true;
+    if (id === 'pillar_3' && subView === 'incident_context') return true;
+    if (id === 'pillar_4' && subView === 'recovery_simulator') return true;
+    return false;
+  };
 
   return (
     <aside
@@ -71,23 +78,19 @@ export const Sidebar: React.FC = () => {
     >
       {/* Top Menu Items */}
       <div className="p-3 space-y-1 overflow-y-auto">
-        {!sidebarCollapsed && (
-          <div className="px-2.5 py-1.5 text-[11px] font-medium tracking-wider text-neutral-400 uppercase font-mono">
-            Operations Control Tower
-          </div>
-        )}
+        {!sidebarCollapsed}
 
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = subView === item.id;
+          const isActive = isItemActive(item.id);
 
           return (
             <button
               key={item.id}
               onClick={() => setSubView(item.id)}
-              title={sidebarCollapsed ? `${item.label}` : undefined}
-              className={`group flex items-center w-full px-2.5 py-2 text-left text-xs rounded-[6px] transition-all ${isActive
-                ? 'bg-neutral-900 text-white font-normal shadow-sm'
+              title={sidebarCollapsed ? `${item.pillarTitle}` : undefined}
+              className={`group flex items-center w-full px-2.5 py-2.5 text-left rounded-[6px] transition-all ${isActive
+                ? 'bg-neutral-900 text-white shadow-sm'
                 : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 font-light'
                 }`}
             >
@@ -98,14 +101,25 @@ export const Sidebar: React.FC = () => {
 
               {!sidebarCollapsed && (
                 <div className="flex items-center justify-between flex-1 truncate">
-                  <span className="truncate">{item.label}</span>
-                  <div className="flex items-center gap-1.5 ml-2">
-                    {item.badgeCount !== undefined && item.badgeCount > 0 && (
-                      <span className="flex items-center justify-center px-1.5 py-0.2 text-[10px] font-mono font-medium rounded-[4px] bg-red-500 text-white">
-                        {item.badgeCount}
+                  <div className="truncate">
+                    <div className="flex items-center gap-1.5 leading-tight">
+                      <span className={`text-xs ${isActive ? 'font-medium text-white' : 'font-normal text-neutral-900'}`}>
+                        {item.pillarTitle}
                       </span>
-                    )}
+                    </div>
+                    <div
+                      className={`text-[10px] truncate mt-0.5 ${isActive ? 'text-neutral-300 font-light' : 'text-neutral-400 font-light'
+                        }`}
+                    >
+                      {item.subtitle}
+                    </div>
                   </div>
+
+                  {item.badgeCount !== undefined && item.badgeCount > 0 && (
+                    <span className="flex items-center justify-center px-1.5 py-0.2 text-[10px] font-mono font-medium rounded-[4px] bg-red-500 text-white ml-2 shrink-0">
+                      {item.badgeCount}
+                    </span>
+                  )}
                 </div>
               )}
             </button>
@@ -123,9 +137,6 @@ export const Sidebar: React.FC = () => {
                 World Model Sync
               </span>
               <span className="font-mono text-neutral-700">1,450 Nodes</span>
-            </div>
-            <div className="text-[10px] font-mono text-neutral-400 leading-tight">
-              LangGraph Multi-Agent • Closed Loop Feedback
             </div>
           </div>
         ) : (

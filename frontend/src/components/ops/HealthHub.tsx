@@ -37,7 +37,7 @@ export const HealthHub: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {/* Metric 1: Clustered Incident Counter */}
         <div
-          onClick={() => setSubView('incident_context')}
+          onClick={() => setSubView('pillar_3')}
           className={`p-4 bg-white border rounded-[8px] cursor-pointer hover:border-neutral-400 transition-all ${
             activeCrisesCount > 0 ? 'border-red-300' : 'border-neutral-200'
           }`}
@@ -128,7 +128,7 @@ export const HealthHub: React.FC = () => {
 
         {/* Metric 3: World Model Digital Twin Status */}
         <div
-          onClick={() => setSubView('digital_twin')}
+          onClick={() => setSubView('pillar_1')}
           className="p-4 bg-white border border-neutral-200 rounded-[8px] cursor-pointer hover:border-neutral-400 transition-all"
         >
           <div className="flex items-center justify-between text-neutral-500 mb-1.5">
@@ -303,38 +303,69 @@ export const HealthHub: React.FC = () => {
             </div>
           )}
 
-          {/* Quick Navigation Cards to Pillars */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
+          {/* Quick Navigation Cards to the 4 Core Pillars */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 pt-2">
             <button
-              onClick={() => setSubView('uleo_stream')}
+              onClick={() => setSubView('pillar_1')}
               className="p-2.5 text-left border border-neutral-200 hover:border-neutral-400 rounded-[6px] hover:bg-neutral-50 transition-colors"
             >
-              <div className="text-[11px] font-mono text-neutral-400">Pillar 1</div>
-              <div className="text-xs font-normal text-neutral-900 mt-0.5">Semantic Stream</div>
-              <div className="text-[10px] font-light text-neutral-500 mt-1">
-                Translate legacy logs to ULEO
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-medium text-neutral-900 bg-neutral-100 px-1.5 py-0.2 rounded">
+                  Pillar 1
+                </span>
+                <span className="text-[9px] font-mono text-neutral-400">Semantic Level</span>
+              </div>
+              <div className="text-xs font-normal text-neutral-900 mt-1">ULEO & World Model</div>
+              <div className="text-[10px] font-light text-neutral-500 mt-0.5">
+                Standard ontology & live graph
               </div>
             </button>
 
             <button
-              onClick={() => setSubView('digital_twin')}
+              onClick={() => setSubView('pillar_2')}
               className="p-2.5 text-left border border-neutral-200 hover:border-neutral-400 rounded-[6px] hover:bg-neutral-50 transition-colors"
             >
-              <div className="text-[11px] font-mono text-neutral-400">Pillar 2</div>
-              <div className="text-xs font-normal text-neutral-900 mt-0.5">Digital Twin Graph</div>
-              <div className="text-[10px] font-light text-neutral-500 mt-1">
-                Interactive React Flow canvas
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-medium text-neutral-900 bg-neutral-100 px-1.5 py-0.2 rounded">
+                  Pillar 2
+                </span>
+                <span className="text-[9px] font-mono text-neutral-400">Verification</span>
+              </div>
+              <div className="text-xs font-normal text-neutral-900 mt-1">Story Engine & Checks</div>
+              <div className="text-[10px] font-light text-neutral-500 mt-0.5">
+                State machines & cross-story validation
               </div>
             </button>
 
             <button
-              onClick={() => setSubView('recovery_simulator')}
+              onClick={() => setSubView('pillar_3')}
               className="p-2.5 text-left border border-neutral-200 hover:border-neutral-400 rounded-[6px] hover:bg-neutral-50 transition-colors"
             >
-              <div className="text-[11px] font-mono text-neutral-400">Pillar 6</div>
-              <div className="text-xs font-normal text-neutral-900 mt-0.5">Decision Sandbox</div>
-              <div className="text-[10px] font-light text-neutral-500 mt-1">
-                Simulate & execute recovery
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-medium text-neutral-900 bg-neutral-100 px-1.5 py-0.2 rounded">
+                  Pillar 3
+                </span>
+                <span className="text-[9px] font-mono text-neutral-400">Diagnostic</span>
+              </div>
+              <div className="text-xs font-normal text-neutral-900 mt-1">Dependency & 5Q Context</div>
+              <div className="text-[10px] font-light text-neutral-500 mt-0.5">
+                Root cause in 15 seconds
+              </div>
+            </button>
+
+            <button
+              onClick={() => setSubView('pillar_4')}
+              className="p-2.5 text-left border border-neutral-200 hover:border-neutral-400 rounded-[6px] hover:bg-neutral-50 transition-colors"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-medium text-neutral-900 bg-neutral-100 px-1.5 py-0.2 rounded">
+                  Pillar 4
+                </span>
+                <span className="text-[9px] font-mono text-neutral-400">Actionable</span>
+              </div>
+              <div className="text-xs font-normal text-neutral-900 mt-1">Decision Engine & Copilot</div>
+              <div className="text-[10px] font-light text-neutral-500 mt-0.5">
+                Simulate & execute 1-click recovery
               </div>
             </button>
           </div>

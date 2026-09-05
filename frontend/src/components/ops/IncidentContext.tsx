@@ -36,11 +36,11 @@ export const IncidentContext: React.FC = () => {
               Incident Context Builder & Operational Memory
             </h2>
             <span className="px-2 py-0.5 text-[10px] font-mono rounded-[4px] bg-neutral-100 text-neutral-600 border border-neutral-200">
-              Pillars 3 & 7: Immediate Context Assembly & Root Cause Analysis
+              Pillar 3: Disconnected Context &amp; Dependency Blindness (The Diagnostic Level)
             </span>
           </div>
           <p className="text-xs font-light text-neutral-500 mt-0.5">
-            Zero manual calls or WhatsApp inquiries: complete crisis context assembled in 12.4 seconds
+            Resource Dependency Monitoring, Operational Context Builder &amp; AI Root-Cause Diagnostic Agents (Assembled in 12.4s)
           </p>
         </div>
 

@@ -33,11 +33,11 @@ export const RecoverySimulator: React.FC = () => {
               Recovery Simulator & Decision Sandbox
             </h2>
             <span className="px-2 py-0.5 text-[10px] font-mono rounded-[4px] bg-neutral-100 text-neutral-600 border border-neutral-200">
-              Pillar 6: Incident Copilot & Decision Support Engine
+              Pillar 4: Alert Fatigue vs. Simulated Recovery (The Actionable Level)
             </span>
           </div>
           <p className="text-xs font-light text-neutral-500 mt-0.5">
-            LangGraph multi-agent future trajectory simulator: trade off delay, financial cost, and SLA breach risk
+            Incident Clustering, Incident Copilot &amp; Decision Engine: Digitally simulate recovery futures and execute with a single click
           </p>
         </div>
 

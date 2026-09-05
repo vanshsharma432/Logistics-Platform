@@ -26,11 +26,11 @@ export const ValidationLogger: React.FC = () => {
               Logistics Story Engine & Active Validation Logger
             </h2>
             <span className="px-2 py-0.5 text-[10px] font-mono rounded-[4px] bg-neutral-100 text-neutral-600 border border-neutral-200">
-              Pillars 4 & 8: Logical State Verification & Physical Validation
+              Pillar 2: Blind Event Logging vs. Active State Validation (The Verification Level)
             </span>
           </div>
           <p className="text-xs font-light text-neutral-500 mt-0.5">
-            Cross-entity mathematical invariants that catch impossible lifecycle transitions and scanner errors before departure
+            Logistics State Machines, Story Engine &amp; Cross-Entity Consistency Checks: Verifying logical stories and catching scanner bugs before departure
           </p>
         </div>
 

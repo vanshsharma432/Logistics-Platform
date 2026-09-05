@@ -36,11 +36,11 @@ export const UleoStream: React.FC = () => {
               Semantic Translation Stream (ULEO Engine)
             </h2>
             <span className="px-2 py-0.5 text-[10px] font-mono rounded-[4px] bg-neutral-100 text-neutral-600 border border-neutral-200">
-              Pillar 1: Unified Event Language
+              Pillar 1: Language &amp; System Fragmentation (The Semantic Level)
             </span>
           </div>
           <p className="text-xs font-light text-neutral-500 mt-0.5">
-            Real-time ontological translation of messy multi-vendor ERP/TMS/WMS feeds into mathematically verified state transitions
+            Universal Logistics Event Ontology (ULEO): Translates multi-vendor ERP/TMS/WMS feeds into a single standardized semantic stream
           </p>
         </div>
 

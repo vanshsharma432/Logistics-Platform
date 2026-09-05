@@ -9,6 +9,8 @@ import { IncidentContext } from './IncidentContext';
 import { RecoverySimulator } from './RecoverySimulator';
 import { X, CheckCircle, Info } from 'lucide-react';
 
+import { Pillar1Semantic } from './Pillar1Semantic';
+
 export const OpsControlTower: React.FC = () => {
   const {
     subView,
@@ -20,14 +22,19 @@ export const OpsControlTower: React.FC = () => {
     switch (subView) {
       case 'health_hub':
         return <HealthHub />;
+      case 'pillar_1':
+        return <Pillar1Semantic />;
       case 'uleo_stream':
-        return <UleoStream />;
+        return <Pillar1Semantic initialTab="uleo" />;
       case 'digital_twin':
-        return <DigitalTwinGraph />;
+        return <Pillar1Semantic initialTab="world_model" />;
+      case 'pillar_2':
       case 'validation_logger':
         return <ValidationLogger />;
+      case 'pillar_3':
       case 'incident_context':
         return <IncidentContext />;
+      case 'pillar_4':
       case 'recovery_simulator':
         return <RecoverySimulator />;
       default:

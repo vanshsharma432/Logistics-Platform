@@ -89,11 +89,11 @@ export const DigitalTwinGraph: React.FC = () => {
               Digital Twin Network Knowledge Graph (World Model)
             </h2>
             <span className="px-2 py-0.5 text-[10px] font-mono rounded-[4px] bg-neutral-100 text-neutral-600 border border-neutral-200">
-              Pillar 2: Operational Memory
+              Pillar 1: Verified World Model (The Semantic Level)
             </span>
           </div>
           <p className="text-xs font-light text-neutral-500 mt-0.5">
-            Physical asset containment, duty assignments, and real-time dependency cascade modeling
+            Operational Memory: Live, continuously updating digital graph of the physical network providing one unified source of truth
           </p>
         </div>
 
