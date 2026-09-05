@@ -66,6 +66,7 @@ The system exposes **two highly synchronized frontend views** powered by the sam
    - Interactive Copilot Panels & Logs          - Reassuring Progress Timelines
    - Decision Sandbox (Pathway Selection)       - Contextual Self-Service Pivot Panels
 ```
+![User Flow Interface](user-flow.png)
 
 ### 1. Operations Control Tower (Internal NOC Workspace)
 *   **Active Incident Feed:** Displays clustered, prioritized operational crises with color-coded severity badges.
@@ -125,8 +126,9 @@ The application features a fully unified, connected architecture:
 
 ---
 
-## 📊 Live Demo Script for Hackathon Judges
-To demonstrate the full power of the AI Logistics Brain to technical judges, run the **NH48 Highway Disruption Simulation**:
+## 📊 Live Demo
+
+Run the **NH48 Highway Disruption Simulation**:
 
 1.  **Ingest Mismatched Legacy Logs:** Click "Simulate Incoming Logs" to show raw inputs (`Goods Issue`, `Loaded`, `Scan Confirmed`) being instantly standardized into clean ontological event terms via the **ULEO Translator**.
 2.  **Highlight Active Verification:** Insert a duplicate scan or a mismatched truck/parcel state on screen. Watch the **Story Engine** flag an orange "Cross-Entity Story Conflict" warning before departure.
